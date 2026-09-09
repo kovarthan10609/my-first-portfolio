@@ -1,0 +1,694 @@
+/* ==============================
+   BASIC RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==============================
+   BODY
+================================ */
+
+body {
+    min-height: 100vh;
+    padding: 30px;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            #00eaff44,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ff00aa44,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #05051c,
+            #101a40,
+            #22052f
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* ==============================
+   GLOWING BACKGROUND
+================================ */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    background: #00eaff;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    opacity: 0.18;
+
+    top: -100px;
+    left: -100px;
+
+    animation: floatingLight 5s infinite alternate;
+
+    z-index: -1;
+}
+
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    background: #ff0088;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    opacity: 0.18;
+
+    bottom: -100px;
+    right: -100px;
+
+    animation: floatingLight 6s infinite alternate-reverse;
+
+    z-index: -1;
+}
+
+
+@keyframes floatingLight {
+
+    from {
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        transform: translateY(-70px) scale(1.2);
+    }
+}
+
+
+/* ==============================
+   PROFILE CARD
+================================ */
+
+.profile {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 50px auto;
+
+    background: rgba(8, 13, 40, 0.85);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    border: 2px solid rgba(0, 234, 255, 0.3);
+
+    box-shadow:
+        0 0 30px #00eaff33,
+        0 0 70px #ff00aa22;
+}
+
+
+/* ==============================
+   HEADER
+================================ */
+
+.header {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c6ff22,
+            #7b2cff33,
+            #ff009933
+        );
+
+    border-bottom: 2px solid #00eaff44;
+}
+
+
+/* ==============================
+   AVATAR
+================================ */
+
+.avatar {
+    width: 110px;
+    height: 110px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 52px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00eaff,
+            #7b2cff,
+            #ff0088
+        );
+
+    border: 4px solid white;
+
+    box-shadow:
+        0 0 20px #00eaff,
+        0 0 45px #ff0088;
+
+    animation: avatarBounce 2s infinite;
+}
+
+
+@keyframes avatarBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+
+/* ==============================
+   JUMPING NAME
+================================ */
+
+.name {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 3px;
+}
+
+
+.name span {
+    display: inline-block;
+
+    font-size: clamp(42px, 8vw, 70px);
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 15px #00eaff,
+        0 0 30px #00eaff,
+        0 0 50px #ff00aa;
+
+    animation: letterJump 1.5s infinite;
+}
+
+
+/* Each letter jumps separately */
+
+.name span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.name span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.name span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.name span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.name span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.name span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.name span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.name span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.name span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+
+@keyframes letterJump {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        color: white;
+    }
+
+    30% {
+        transform: translateY(-25px) rotate(-4deg);
+        color: #00eaff;
+    }
+
+    60% {
+        transform: translateY(0);
+        color: white;
+    }
+}
+
+
+/* ==============================
+   SUBTITLE
+================================ */
+
+.header p {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    color: #dceaff;
+
+    animation: subtitleBounce 2s infinite;
+}
+
+
+@keyframes subtitleBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ==============================
+   ANIME LINE
+================================ */
+
+.anime-line {
+    width: 250px;
+    height: 4px;
+
+    margin: 25px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00eaff,
+            #ff00aa,
+            #00eaff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 25px #ff00aa;
+
+    animation: lineGlow 2s infinite alternate;
+}
+
+
+@keyframes lineGlow {
+
+    from {
+        opacity: 0.5;
+        transform: scaleX(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+
+/* ==============================
+   ANIME TAG
+================================ */
+
+.tag {
+    display: inline-block;
+
+    padding: 9px 20px;
+
+    border: 1px solid #00eaff;
+
+    border-radius: 30px;
+
+    color: #00eaff;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    background: #00eaff0d;
+
+    box-shadow:
+        0 0 15px #00eaff33;
+
+    animation: tagPulse 2s infinite;
+}
+
+
+@keyframes tagPulse {
+
+    50% {
+        box-shadow:
+            0 0 25px #00eaff88;
+    }
+}
+
+
+/* ==============================
+   COMMON SECTION
+================================ */
+
+.section {
+    padding: 35px 45px;
+
+    border-bottom: 1px solid #ffffff12;
+
+    transition: 0.4s;
+}
+
+
+.section:hover {
+    background: #ffffff08;
+
+    transform: scale(1.01);
+}
+
+
+.section h2 {
+    color: #00eaff;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid #ff00aa;
+
+    text-shadow:
+        0 0 10px #00eaff;
+
+    animation: headingJump 2.5s infinite;
+}
+
+
+@keyframes headingJump {
+
+    0%,
+    90%,
+    100% {
+        transform: translateY(0);
+    }
+
+    95% {
+        transform: translateY(-8px);
+    }
+}
+
+
+.section p {
+    color: #e1e5ff;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+.section strong {
+    color: #00eaff;
+}
+
+
+/* ==============================
+   SECTION COLORS
+================================ */
+
+.contact {
+    background: linear-gradient(
+        90deg,
+        #00eaff0d,
+        transparent
+    );
+}
+
+
+.education {
+    background: linear-gradient(
+        90deg,
+        #7b2cff0d,
+        transparent
+    );
+}
+
+
+.skills {
+    background: linear-gradient(
+        90deg,
+        #ff00aa0d,
+        transparent
+    );
+}
+
+
+.hobbies {
+    background: linear-gradient(
+        90deg,
+        #00ff8810,
+        transparent
+    );
+}
+
+
+/* ==============================
+   LISTS
+================================ */
+
+ul {
+    list-style: none;
+
+    padding: 0;
+}
+
+
+li {
+    margin: 13px 0;
+
+    padding: 15px 18px;
+
+    color: #e8ebff;
+
+    background: #ffffff08;
+
+    border-left: 4px solid #00eaff;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+
+    animation: itemJump 3s infinite;
+}
+
+
+/* Different jumping timing */
+
+li:nth-child(1) {
+    animation-delay: 0s;
+}
+
+li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+li:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+li:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+li:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+li:nth-child(6) {
+    animation-delay: 1s;
+}
+
+
+@keyframes itemJump {
+
+    0%,
+    85%,
+    100% {
+        transform: translateY(0);
+    }
+
+    90% {
+        transform: translateY(-8px);
+    }
+}
+
+
+li:hover {
+    transform: translateX(12px) scale(1.03) !important;
+
+    color: white;
+
+    background: #00eaff12;
+
+    border-left-color: #ff00aa;
+
+    box-shadow:
+        0 0 18px #00eaff33;
+}
+
+
+/* Hobbies */
+
+.hobbies li {
+    border-left-color: #ff00aa;
+}
+
+
+.hobbies li:hover {
+    border-left-color: #00eaff;
+
+    box-shadow:
+        0 0 18px #ff00aa44;
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+.footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background: #02030d;
+
+    color: #929bc5;
+}
+
+
+.footer span {
+    color: #00eaff;
+
+    text-shadow:
+        0 0 10px #00eaff;
+
+    animation: glow 2s infinite alternate;
+}
+
+
+@keyframes glow {
+
+    from {
+        text-shadow: 0 0 5px #00eaff;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #00eaff,
+            0 0 25px #00eaff;
+    }
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .profile {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .header {
+        padding: 45px 15px;
+    }
+
+    .section {
+        padding: 25px 20px;
+    }
+
+    .name span {
+        font-size: 42px;
+    }
+
+    .header p {
+        font-size: 16px;
+    }
+
+    .avatar {
+        width: 85px;
+        height: 85px;
+
+        font-size: 40px;
+    }
+
+    .anime-line {
+        width: 180px;
+    }
+}
